@@ -1,0 +1,25 @@
+{
+  "name": "React-Redux-CRUD-App",
+  "version": "1.0.0",
+  "description": "Shows how to build React Redux CRUD apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "serve -s dist",
+    "build": "parcel build index.html",
+    "dev": "parcel index.html",
+    "clean": "rimraf ./dist && rimraf ./.cache"
+  },
+  "author": "@rajaraodv",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "lodash": "^4.17.11",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
+    "react-router-dom": "^5.0.0",
+    "redux": "^4.0.1",
+    "redux-form": "^8.2.3"
+  }
+}
