@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import HeaderContainer from '../containers/HeaderContainer';
 import SignInFormContainer from '../containers/SignInFormContainer';
 
-class PostsNew extends Component {
+class SignIn extends Component {
   render() {
+    debugger;
     return (
       <div>
-        <HeaderContainer type="posts_new"/>
+        <HeaderContainer type="posts_new" />
         <SignInFormContainer />
       </div>
     );
@@ -14,4 +15,4 @@ class PostsNew extends Component {
 }
 
 
-export default PostsNew;
+export default SignIn;

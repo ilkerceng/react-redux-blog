@@ -1,13 +1,11 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types'; // ES6
 import { connect } from 'react-redux';
 import { deletePost } from '../actions/posts';
 import Header from '../containers/HeaderContainer';
 import PostDetailsContainer from '../containers/PostDetailsContainer';
 
 class PostsShow extends Component {
-  static contextTypes = {
-    router: PropTypes.object
-  };
 
   onDeleteClick() {
     this.props.deletePost(this.props.params.id)
@@ -23,5 +21,9 @@ class PostsShow extends Component {
     );
   }
 }
+
+// PostsShow.propTypes = {
+//   router: PropTypes.object
+// };
 
 export default PostsShow;

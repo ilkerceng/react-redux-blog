@@ -10,8 +10,8 @@ var jwt = require('jsonwebtoken');
 //var compression = require('compression');
 
 //routes
-var users = require('./routes/users');
-var posts = require('./routes/posts');
+var users = require('../routes/users');
+var posts = require('../routes/posts');
 
 var app = express();
 
