@@ -1,6 +1,6 @@
 # React Redux CRUD App
 
-## What i want to to existing code
+## What i want to change in existing code
 ### client
 - update dependencies
 - add parcel instead of webpack
