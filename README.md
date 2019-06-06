@@ -10,7 +10,7 @@
 - lastly but not sure i may use unstated-next library instead of redux
 
 ### server
-- enable working with sql and nosql lib
+- enable working with sql and nosql db
 
 **Note: As of Nov 30th 2016, the code has been updated to work w/ latest versions of its dependencies!**
 
