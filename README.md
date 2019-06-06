@@ -6,6 +6,7 @@
 - add parcel instead of webpack
 - use lerna for client and server
 - convert all components to hook api
+- replace redux-form with antd library
 - lastly but not sure i may use unstated-next library instead of redux
 
 ### server
