@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; // ES6
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { reduxForm, Field, SubmissionError } from 'redux-form';
 import renderField from './renderField';
 import { signInUser, signInUserSuccess, signInUserFailure, resetUserFields } from '../actions/users';
@@ -52,7 +52,7 @@ class SignInForm extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.user.status === 'authenticated' && nextProps.user.user && !nextProps.user.error) {
-            this.context.router.push('/');
+            this.props.history.push('/');
         }
 
         //error
@@ -103,8 +103,8 @@ class SignInForm extends Component {
 //     router: PropTypes.object
 // };
 
-export default reduxForm({
+export default withRouter(reduxForm({
     form: 'SignInForm', // a unique identifier for this form
     validate // <--- validation function given to redux-form
-})(SignInForm)
+})(SignInForm))
 

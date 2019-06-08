@@ -46,3 +46,4 @@ stats.json
 package-lock.json
 
 dist
+.env

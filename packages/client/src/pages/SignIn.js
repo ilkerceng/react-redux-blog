@@ -7,7 +7,7 @@ class SignIn extends Component {
     debugger;
     return (
       <div>
-        <HeaderContainer type="posts_new" />
+        {/* <HeaderContainer type="posts_new" /> */}
         <SignInFormContainer />
       </div>
     );

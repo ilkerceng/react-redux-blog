@@ -14,15 +14,15 @@ class Header extends Component {
         this.props.resetMe();
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.deletedPost.error && nextProps.deletedPost.error.message) {//delete failure
-            alert(nextProps.deletedPost.error.message || 'Could not delete. Please try again.');
-        } else if (nextProps.deletedPost.post && !nextProps.deletedPost.error) {//delete success
-            this.context.router.push('/');
-        } else if (this.props.user.user && !nextProps.user.user) {//logout (had user(this.props.user.user) but no loger the case (!nextProps.user.user))
-            this.context.router.push('/');
-        }
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     if (nextProps.deletedPost.error && nextProps.deletedPost.error.message) {//delete failure
+    //         alert(nextProps.deletedPost.error.message || 'Could not delete. Please try again.');
+    //     } else if (nextProps.deletedPost.post && !nextProps.deletedPost.error) {//delete success
+    //         this.context.router.push('/');
+    //     } else if (this.props.user.user && !nextProps.user.user) {//logout (had user(this.props.user.user) but no loger the case (!nextProps.user.user))
+    //         this.context.router.push('/');
+    //     }
+    // }
 
     renderSignInLinks(authenticatedUser) {
         if (authenticatedUser) {
@@ -67,6 +67,16 @@ class Header extends Component {
                         <li style={{ paddingRight: '10px' }} role="presentation">
                             <Link style={{ color: '#337ab7', fontSize: '17px' }} to="/posts/new">
                                 {"New Post"}
+                            </Link>
+                        </li>
+                        <li>
+                            <Link style={{ color: '#337ab7', fontSize: '17px' }} to="/posts">
+                                {"Posts"}
+                            </Link>
+                        </li>
+                        <li>
+                            <Link style={{ color: '#337ab7', fontSize: '17px' }} to="/">
+                                {"Home"}
                             </Link>
                         </li>
                     </ul>
