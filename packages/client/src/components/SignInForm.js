@@ -30,7 +30,7 @@ const validateAndSignInUser = (values, dispatch) => {
                 dispatch(signInUserFailure(result.payload.response.data));
                 throw new SubmissionError(result.payload.response.data);
             }
-
+            console.log(result);
             //Store JWT Token to browser session storage 
             //If you use localStorage instead of sessionStorage, then this w/ persisted across tabs and new windows.
             //sessionStorage = persisted only in current tab

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; // ES6
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { reduxForm, Field, SubmissionError } from 'redux-form';
 import renderField from './renderField';
 import renderTextArea from './renderTextArea';
@@ -65,7 +65,7 @@ const validateAndCreatePost = (values, dispatch) => {
 
 
 class PostsForm extends Component {
-    
+
     componentWillMount() {
         //Important! If your component is navigating based on some global state(from say componentWillReceiveProps)
         //always reset that global state back to null when you REMOUNT
@@ -74,7 +74,7 @@ class PostsForm extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.newPost.post && !nextProps.newPost.error) {
-            this.context.router.push('/');
+            this.props.history.push('/posts');
         }
     }
 
@@ -134,8 +134,8 @@ class PostsForm extends Component {
 //     router: PropTypes.object
 // };
 
-export default reduxForm({
+export default withRouter(reduxForm({
     form: 'PostsForm', // a unique identifier for this form
     validate, // <--- validation function given to redux-form
     asyncValidate
-})(PostsForm)
+})(PostsForm))

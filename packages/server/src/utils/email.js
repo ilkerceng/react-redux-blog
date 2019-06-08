@@ -40,7 +40,7 @@ function sendWelcomeEmail(user, host, finalCB) {
                 "TemplateModel": {
                     "product_name": "React Redux Blog",
                     "name": user.name,
-                    "action_url": host + '/validateEmail/' + user.verifyEmailToken,
+                    "action_url": host + '/api/validateEmail/' + user.verifyEmailToken,
                     "username": user.username,
                     "sender_name": "Redux Team",
                     'sender_name_Value': 'Raja',

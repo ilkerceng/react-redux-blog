@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; // ES6
-import { Route, Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import PostsNew from '../pages/PostsNew';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
@@ -14,15 +14,15 @@ class Header extends Component {
         this.props.resetMe();
     }
 
-    // componentWillReceiveProps(nextProps) {
-    //     if (nextProps.deletedPost.error && nextProps.deletedPost.error.message) {//delete failure
-    //         alert(nextProps.deletedPost.error.message || 'Could not delete. Please try again.');
-    //     } else if (nextProps.deletedPost.post && !nextProps.deletedPost.error) {//delete success
-    //         this.context.router.push('/');
-    //     } else if (this.props.user.user && !nextProps.user.user) {//logout (had user(this.props.user.user) but no loger the case (!nextProps.user.user))
-    //         this.context.router.push('/');
-    //     }
-    // }
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.deletedPost.error && nextProps.deletedPost.error.message) {//delete failure
+            alert(nextProps.deletedPost.error.message || 'Could not delete. Please try again.');
+        } else if (nextProps.deletedPost.post && !nextProps.deletedPost.error) {//delete success
+            this.props.history.push('/');
+        } else if (this.props.user.user && !nextProps.user.user) {//logout (had user(this.props.user.user) but no loger the case (!nextProps.user.user))
+            this.props.history.push('/');
+        }
+    }
 
     renderSignInLinks(authenticatedUser) {
         if (authenticatedUser) {
@@ -122,9 +122,9 @@ class Header extends Component {
     }
 }
 
-Header.propTypes = {
-    router: PropTypes.object
-};
+// Header.propTypes = {
+//     router: PropTypes.object
+// };
 
 
-export default Header
+export default withRouter(Header);

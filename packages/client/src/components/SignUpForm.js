@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; // ES6
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { reduxForm, Field, SubmissionError } from 'redux-form';
 import renderField from './renderField';
 import { validateUserFields, validateUserFieldsSuccess, validateUserFieldsFailure, resetValidateUserFields } from '../actions/validateUserFields';
@@ -100,7 +100,7 @@ class SignUpForm extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.user.status === 'authenticated' && nextProps.user.user && !nextProps.user.error) {
-            this.context.router.push('/');
+            this.props.history.push('/');
         }
     }
 
@@ -158,9 +158,9 @@ class SignUpForm extends Component {
 //     router: PropTypes.object
 // };
 
-export default reduxForm({
+export default withRouter(reduxForm({
     form: 'SignUpForm', // a unique identifier for this form
     validate, // <--- validation function given to redux-form
     asyncValidate
-})(SignUpForm)
+})(SignUpForm))
 
