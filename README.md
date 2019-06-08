@@ -1,5 +1,17 @@
 # React Redux CRUD App
 
+## What i want to change in existing code
+### client
+- update dependencies
+- add parcel instead of webpack
+- use lerna for client and server
+- convert all components to hook api
+- replace redux-form with antd library
+- lastly but not sure i may use unstated-next library instead of redux
+
+### server
+- enable working with sql and nosql db
+
 **Note: As of Nov 30th 2016, the code has been updated to work w/ latest versions of its dependencies!**
 
 <img src='https://david-dm.org/rajaraodv/react-redux-blog.svg' />
