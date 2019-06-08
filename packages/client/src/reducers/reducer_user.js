@@ -59,10 +59,8 @@ export default function (state = INITIAL_STATE, action) {
             error = action.payload.data || { message: action.payload.message };//2nd one is network or server down errors      
             return { ...state, user: null, status: 'signin', error: error, loading: false };
 
-
         case UPDATE_USER_EMAIL:
             return { ...state, user: { ...state.user, email: action.payload.email } };
-
 
         case LOGOUT_USER:
             return { ...state, user: null, status: 'logout', error: null, loading: false };
