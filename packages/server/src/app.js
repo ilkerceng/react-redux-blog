@@ -14,7 +14,6 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 var users = require('./routes/users');
-var posts = require('./routes/posts');
 
 var app = express();
 
@@ -75,11 +74,9 @@ app.use(function (req, res, next) {
 });
 
 
-app.use('/api/', posts);
 app.use('/api/', users);
 app.use(express.static(staticPath));
 app.use('/', express.static(staticPath));
-app.use('/posts/*', express.static(staticPath));
 app.use('/new/*', express.static(staticPath));
 app.use('/validateEmail/*', express.static(staticPath));
 
@@ -92,14 +89,6 @@ app.use(function (req, res, next) {
     err.status = 404;
     next(err);
 });
-
-
-// app.use(function(err, req, res, next) {
-//   console.error(err.stack);
-//   console.log(1)
-//   res.status(500).send('Uh oh! Something broke!');
-// });
-
 
 // error handlers
 // no stacktraces leaked to user

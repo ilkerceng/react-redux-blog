@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPosts, resetDeletedPost, deletePost, deletePostSuccess, deletePostFailure } from '../actions/posts';
 import { logoutUser } from '../actions/users';
 import Header from '../components/header';
 
@@ -8,7 +7,6 @@ import Header from '../components/header';
 
 function mapStateToProps(state) {
     return {
-        deletedPost: state.posts.deletedPost,
         authenticatedUser: state.user.status === 'authenticated' ? state.user.user : null,
         user: state.user
     };
@@ -23,11 +21,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
                 dispatch(deletePostFailure(data)); // but let other comps know
                 return;
             }
-
-            dispatch(deletePost(ownProps.postId, token))
-                .then((response) => {
-                    !response.error ? dispatch(deletePostSuccess(response.payload)) : dispatch(deletePostFailure(response.payload));
-                });
         },
         resetMe: () => {
             dispatch(resetDeletedPost());

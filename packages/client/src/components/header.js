@@ -1,28 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; // ES6
 import { withRouter, Link } from 'react-router-dom';
-import PostsNew from '../pages/PostsNew';
-import SignIn from '../pages/SignIn';
-import SignUp from '../pages/SignUp';
 
 
 class Header extends Component {
 
     componentWillUnmount() {
-        //Important! If your component is navigating based on some global state(from say componentWillReceiveProps)
-        //always reset that global state back to null when you REMOUNT
         this.props.resetMe();
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.deletedPost.error && nextProps.deletedPost.error.message) {//delete failure
-            alert(nextProps.deletedPost.error.message || 'Could not delete. Please try again.');
-        } else if (nextProps.deletedPost.post && !nextProps.deletedPost.error) {//delete success
-            this.props.history.push('/');
-        } else if (this.props.user.user && !nextProps.user.user) {//logout (had user(this.props.user.user) but no loger the case (!nextProps.user.user))
-            this.props.history.push('/');
-        }
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     if (nextProps.deletedPost.error && nextProps.deletedPost.error.message) {//delete failure
+    //         alert(nextProps.deletedPost.error.message || 'Could not delete. Please try again.');
+    //     } else if (nextProps.deletedPost.post && !nextProps.deletedPost.error) {//delete success
+    //         this.props.history.push('/');
+    //     } else if (this.props.user.user && !nextProps.user.user) {//logout (had user(this.props.user.user) but no loger the case (!nextProps.user.user))
+    //         this.props.history.push('/');
+    //     }
+    // }
 
     renderSignInLinks(authenticatedUser) {
         if (authenticatedUser) {
@@ -60,20 +55,10 @@ class Header extends Component {
 
     renderLinks() {
         const { type, authenticatedUser } = this.props;
-        if (type === 'posts_index') {
+        if (type === 'log_out') {
             return (
                 <div className="container">
                     <ul className="nav  nav-pills navbar-right">
-                        <li style={{ paddingRight: '10px' }} role="presentation">
-                            <Link style={{ color: '#337ab7', fontSize: '17px' }} to="/posts/new">
-                                {"New Post"}
-                            </Link>
-                        </li>
-                        <li>
-                            <Link style={{ color: '#337ab7', fontSize: '17px' }} to="/posts">
-                                {"Posts"}
-                            </Link>
-                        </li>
                         <li>
                             <Link style={{ color: '#337ab7', fontSize: '17px' }} to="/">
                                 {"Home"}
@@ -84,7 +69,7 @@ class Header extends Component {
 
                 </div>
             );
-        } else if (type === 'posts_new') {
+        } else if (type === 'log_in') {
             return (
                 <div className="container">
                     {this.renderSignInLinks(authenticatedUser)}
@@ -93,19 +78,6 @@ class Header extends Component {
                             <Link className="text-xs-right" style={{ color: '#337ab7', fontSize: '17px' }} to="/">Back To Index</Link>
                         </li>
                     </ul>
-                </div>
-            );
-        } else if (type === 'posts_show') {
-            return (
-                <div className="container">
-                    <ul className="nav  nav-pills navbar-left">
-                        <li style={{ paddingRight: '10px' }} style={{ color: '#337ab7', fontSize: '17px' }} role="presentation"><Link to="/">Back To Index</Link></li>
-                    </ul>
-
-                    <div className="navbar-form navbar-right" style={{ paddingRight: '50px' }}>
-                        <button className="btn btn-warning pull-xs-right" onClick={() => { this.props.onDeleteClick() }}>Delete Post</button>
-                    </div>
-                    {this.renderSignInLinks(authenticatedUser)}
                 </div>
             );
         }
