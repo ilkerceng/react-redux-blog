@@ -88,13 +88,11 @@ export function meFromTokenFailure(error) {
     };
 }
 
-
 export function resetToken() {//used for logout
     return {
         type: RESET_TOKEN
     };
 }
-
 
 export function signUpUser(formValues) {
     const request = axios.post(`${ROOT_URL}/users/signup`, formValues);
@@ -118,7 +116,6 @@ export function signUpUserFailure(error) {
         payload: error
     };
 }
-
 
 export function resetUser() {
     return {
@@ -154,6 +151,7 @@ export function logoutUser() {
         type: LOGOUT_USER
     };
 }
+
 export function updateUserEmail(email) {
     return {
         type: UPDATE_USER_EMAIL,

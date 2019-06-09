@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'; // ES6
 import { Link, withRouter } from 'react-router-dom';
 import { reduxForm, Field, SubmissionError } from 'redux-form';
+
 import renderField from './renderField';
-import { validateUserFields, validateUserFieldsSuccess, validateUserFieldsFailure, resetValidateUserFields } from '../actions/validateUserFields';
-import { signUpUser, signUpUserSuccess, signUpUserFailure, } from '../actions/users';
+import {
+    signUpUser,
+    signUpUserSuccess,
+    signUpUserFailure
+} from '../state_management/login/actions/users';
 
 //Client side validation
 function validate(values) {
@@ -42,32 +46,6 @@ function validate(values) {
 
 
 
-// //For instant async server validation
-const asyncValidate = (values, dispatch) => {
-    return dispatch(validateUserFields(values))
-        .then((result) => {
-            //Note: Error's "data" is in result.payload.response.data
-            // success's "data" is in result.payload.data
-            if (!result.payload.response) { //1st onblur
-                return;
-            }
-
-            let { data, status } = result.payload.response;
-
-            //if status is not 200 or any one of the fields exist, then there is a field error
-            if (status != 200 || data.username || data.email) {
-                //let other components know of error by updating the redux` state
-                dispatch(validateUserFieldsFailure(data));
-                throw data;
-            } else {
-                //let other components know that everything is fine by updating the redux` state
-                dispatch(validateUserFieldsSuccess(data)); //ps: this is same as dispatching RESET_USER_FIELDS
-            }
-        });
-};
-
-
-
 //For any field errors upon submission (i.e. not instant check)
 const validateAndSignUpUser = (values, dispatch) => {
     return dispatch(signUpUser(values))
@@ -91,7 +69,7 @@ const validateAndSignUpUser = (values, dispatch) => {
 
 
 class SignUpForm extends Component {
-    
+
     componentWillMount() {
         //Important! If your component is navigating based on some global state(from say componentWillReceiveProps)
         //always reset that global state back to null when you REMOUNT
@@ -105,7 +83,7 @@ class SignUpForm extends Component {
     }
 
     render() {
-        const { asyncValidating, handleSubmit, submitting, asyncValidate, validate } = this.props;
+        const { handleSubmit, submitting, validate } = this.props;
         return (
             <div className='container'>
                 <form onSubmit={handleSubmit(validateAndSignUpUser)}>
@@ -161,6 +139,5 @@ class SignUpForm extends Component {
 export default withRouter(reduxForm({
     form: 'SignUpForm', // a unique identifier for this form
     validate, // <--- validation function given to redux-form
-    asyncValidate
 })(SignUpForm))
 

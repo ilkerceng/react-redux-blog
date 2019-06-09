@@ -1,23 +1,20 @@
 import SignUpForm from '../components/SignUpForm';
-import { resetValidateUserFields } from '../actions/validateUserFields';
 import { connect } from 'react-redux';
 
 
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    resetMe: () => {
-      dispatch(resetValidateUserFields());
+    return {
+        resetMe: () => {
+        }
     }
-  }
 }
 
 
-function mapStateToProps(state, ownProps) {
-  return {
-    user: state.user,
-    validateFields: state.validateFields,
-  };
+function mapStateToProps(state) {
+    return {
+        user: state.user,
+    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
