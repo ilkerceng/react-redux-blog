@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'; // ES6
 import { Link, withRouter } from 'react-router-dom';
 import { reduxForm, Field, SubmissionError } from 'redux-form';
 import renderField from './renderField';
-import { signInUser, signInUserSuccess, signInUserFailure, resetUserFields } from '../actions/users';
+import { signInUser, signInUserSuccess, signInUserFailure, resetUserFields } from '../state_management/login/actions/users';
 
 //Client side validation
 function validate(values) {

@@ -1,5 +1,5 @@
 import SignUpForm from '../components/SignUpForm';
-import { resetValidateUserFields } from '../actions/validateUserFields';
+import { resetValidateUserFields } from '../state_management/login/actions/validateUserFields';
 import { connect } from 'react-redux';
 
 

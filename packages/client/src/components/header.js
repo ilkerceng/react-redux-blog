@@ -1,24 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'; // ES6
 import { withRouter, Link } from 'react-router-dom';
 
 
 class Header extends Component {
-
-    componentWillUnmount() {
-        this.props.resetMe();
-    }
-
-    // componentWillReceiveProps(nextProps) {
-    //     if (nextProps.deletedPost.error && nextProps.deletedPost.error.message) {//delete failure
-    //         alert(nextProps.deletedPost.error.message || 'Could not delete. Please try again.');
-    //     } else if (nextProps.deletedPost.post && !nextProps.deletedPost.error) {//delete success
-    //         this.props.history.push('/');
-    //     } else if (this.props.user.user && !nextProps.user.user) {//logout (had user(this.props.user.user) but no loger the case (!nextProps.user.user))
-    //         this.props.history.push('/');
-    //     }
-    // }
-
     renderSignInLinks(authenticatedUser) {
         if (authenticatedUser) {
             return (
@@ -94,9 +78,6 @@ class Header extends Component {
     }
 }
 
-// Header.propTypes = {
-//     router: PropTypes.object
-// };
 
-
-export default withRouter(Header);
+Header = withRouter(Header);
+export default Header;

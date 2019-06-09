@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; // ES6
 import { Link } from 'react-router-dom';
-import { forgotPwd, forgotPwdSuccess, forgotPwdFailure, resetUserFields } from '../actions/users';
+import { forgotPwd, forgotPwdSuccess, forgotPwdFailure, resetUserFields } from '../state_management/login/actions/users';
 import { reduxForm, Field, SubmissionError } from 'redux-form';
 import { connect } from 'react-redux';
 import renderField from './renderField';

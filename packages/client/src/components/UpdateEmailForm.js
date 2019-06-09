@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; // ES6
 import { Link } from 'react-router-dom';
-import { updateEmail, updateEmailSuccess, updateEmailFailure } from '../actions/updateEmail';
-import { validateUserFields, validateUserFieldsSuccess, validateUserFieldsFailure } from '../actions/validateUserFields';
+import { updateEmail, updateEmailSuccess, updateEmailFailure } from '../state_management/login/actions/updateEmail';
+import { validateUserFields, validateUserFieldsSuccess, validateUserFieldsFailure } from '../state_management/login/actions/validateUserFields';
 import renderField from './renderField';
 import { reduxForm, Field, SubmissionError } from 'redux-form';
-import { updateUserEmail } from '../actions/users';
+import { updateUserEmail } from '../state_management/login/actions/users';
 
 //Client side validation
 function validate(values) {

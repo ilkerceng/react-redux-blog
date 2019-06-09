@@ -10,34 +10,34 @@ export const RESET_RESEND_EMAIL_STATE = 'RESET_RESEND_EMAIL_STATE';
 const ROOT_URL = location.href.indexOf('localhost') > 0 ? 'http://localhost:3000/api' : '/api';
 
 export function resendValidationEmail(tokenFromStorage) {
-  const request = axios({
-    method: 'get',
-    url: `${ROOT_URL}/resendValidationEmail`,
-    headers: {'Authorization': `Bearer ${tokenFromStorage}`}
-  });
+    const request = axios({
+        method: 'get',
+        url: `${ROOT_URL}/resendValidationEmail`,
+        headers: { 'Authorization': `Bearer ${tokenFromStorage}` }
+    });
 
-  return {
-    type: RESEND_VALIDATION_EMAIL,
-    payload: request
-  };
+    return {
+        type: RESEND_VALIDATION_EMAIL,
+        payload: request
+    };
 }
 
 export function resendValidationEmailSuccess(message) {
-  return {
-    type: RESEND_VALIDATION_EMAIL_SUCCESS,
-    payload: message
-  };
+    return {
+        type: RESEND_VALIDATION_EMAIL_SUCCESS,
+        payload: message
+    };
 }
 
 export function resendValidationEmailFailure(error) {
-  return {
-    type: RESEND_VALIDATION_EMAIL_FAILURE,
-    payload: error
-  };
+    return {
+        type: RESEND_VALIDATION_EMAIL_FAILURE,
+        payload: error
+    };
 }
 
 export function resetResendEmailState() {
-  return {
-    type: RESET_RESEND_EMAIL_STATE
-  };
+    return {
+        type: RESET_RESEND_EMAIL_STATE
+    };
 }

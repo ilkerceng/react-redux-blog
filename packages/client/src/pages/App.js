@@ -1,15 +1,15 @@
 import React from 'react';
 import { Component } from 'react';
-import AppContainer from '../containers/AppContainer';
+import Header from '../components/Header';
 
 
 export default class App extends Component {
     render() {
         return (
-            <AppContainer>
-                {"I am in Page App"}
-                {this.props.children}
-            </AppContainer>
+            <div>
+                <Header />
+                {"App Page Content"}
+            </div>
         );
     }
 }

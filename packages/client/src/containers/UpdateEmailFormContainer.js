@@ -1,6 +1,6 @@
 import UpdateEmailForm from '../components/UpdateEmailForm';
-import { resetUpdateEmailState } from '../actions/updateEmail';
-import { resetValidateUserFields } from '../actions/validateUserFields';
+import { resetUpdateEmailState } from '../state_management/login/actions/updateEmail';
+import { resetValidateUserFields } from '../state_management/login/actions/validateUserFields';
 import { connect } from 'react-redux';
 
 

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'; // ES6
 import { Link, withRouter } from 'react-router-dom';
 import { reduxForm, Field, SubmissionError } from 'redux-form';
 import renderField from './renderField';
-import { validateUserFields, validateUserFieldsSuccess, validateUserFieldsFailure, resetValidateUserFields } from '../actions/validateUserFields';
-import { signUpUser, signUpUserSuccess, signUpUserFailure, } from '../actions/users';
+import { validateUserFields, validateUserFieldsSuccess, validateUserFieldsFailure, resetValidateUserFields } from '../state_management/login/actions/validateUserFields';
+import { signUpUser, signUpUserSuccess, signUpUserFailure, } from '../state_management/login/actions/users';
 
 //Client side validation
 function validate(values) {

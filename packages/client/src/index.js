@@ -2,21 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from "react-router-dom";
-import configureStore from './store/configureStore';
-import HeaderContainer from './containers/HeaderContainer';
+import configureStore from './state_management/store/configureStore';
 import { Routes } from './routes';
 
 const store = configureStore();
-// const history = createBrowserHistory()
 
 
 ReactDOM.render(
     <Provider store={store}>
         <Router>
-            <div>
-                <HeaderContainer />
-                <Routes />
-            </div>
+            <Routes />
         </Router>
     </Provider>,
     document.getElementById('body')

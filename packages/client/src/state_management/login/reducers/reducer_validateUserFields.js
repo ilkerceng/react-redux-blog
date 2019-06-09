@@ -1,5 +1,10 @@
 
-import { VALIDATE_USER_FIELDS, VALIDATE_USER_FIELDS_SUCCESS, VALIDATE_USER_FIELDS_FAILURE, RESET_VALIDATE_USER_FIELDS } from '../actions/validateUserFields';
+import {
+    VALIDATE_USER_FIELDS,
+    VALIDATE_USER_FIELDS_SUCCESS,
+    VALIDATE_USER_FIELDS_FAILURE,
+    RESET_VALIDATE_USER_FIELDS
+} from '../actions/validateUserFields';
 
 
 //user = userobj, 

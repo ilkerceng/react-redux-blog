@@ -1,5 +1,10 @@
 
-import { UPDATE_EMAIL, UPDATE_EMAIL_SUCCESS, UPDATE_EMAIL_FAILURE, RESET_UPDATE_EMAIL_STATE } from '../actions/updateEmail';
+import {
+    UPDATE_EMAIL,
+    UPDATE_EMAIL_SUCCESS,
+    UPDATE_EMAIL_FAILURE,
+    RESET_UPDATE_EMAIL_STATE
+} from '../actions/updateEmail';
 
 
 
