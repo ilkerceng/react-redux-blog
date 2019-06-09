@@ -1,6 +1,5 @@
 import UpdateEmailForm from '../components/UpdateEmailForm';
 import { resetUpdateEmailState } from '../state_management/login/actions/updateEmail';
-import { resetValidateUserFields } from '../state_management/login/actions/validateUserFields';
 import { connect } from 'react-redux';
 
 
@@ -76,7 +75,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
    resetMe: () =>{
      dispatch(resetUpdateEmailState());
-     dispatch(resetValidateUserFields());
     }
   }
 }

@@ -1,5 +1,4 @@
 import SignUpForm from '../components/SignUpForm';
-import { resetValidateUserFields } from '../state_management/login/actions/validateUserFields';
 import { connect } from 'react-redux';
 
 
@@ -7,16 +6,14 @@ import { connect } from 'react-redux';
 const mapDispatchToProps = (dispatch) => {
     return {
         resetMe: () => {
-            dispatch(resetValidateUserFields());
         }
     }
 }
 
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
     return {
         user: state.user,
-        validateFields: state.validateFields,
     };
 }
 
